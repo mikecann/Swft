@@ -1,5 +1,7 @@
 package co.uk.swft.base
 {
+	import co.uk.swft.core.IEntity;
+	
 	import org.robotlegs.core.IInjector;
 
 	public class EntityMap
@@ -12,10 +14,12 @@ package co.uk.swft.base
 			_injector = injector;
 		}
 		
-		public function instantiateEntity(entityClass:Class) : Entity
+		public function instantiateEntity(entityClass:Class) : IEntity
 		{
-			var entity : Entity = new entityClass();
+			var entity : IEntity = new entityClass();
 			entity.injector = _injector.createChild();
+			entity.mapComponents();
+			entity.injector.injectInto(entity);
 			return entity;
 		}
 	}
