@@ -1,6 +1,17 @@
+.settings/*
+bin-debug/*
+bin-release/*
+html-template/*
+bin/*
+doc/*
+obj/*
 
-/html-template
-/.actionScriptProperties
-/.project
-/.settings
-/bin-debug
+*/.svn/*
+.actionScriptProperties
+.flexProperties
+.flexLibProperties
+.FlexUnitSettings
+.project
+
+Thumbs.db
+.DS_Store
