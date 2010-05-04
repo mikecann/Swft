@@ -9,7 +9,7 @@ package co.uk.swft.core
 		
 		function mapComponents():void;
 		function registerComponent(component:IEntityComponent):void;
-		function removeComponent(component:IEntityComponent):void;
+		function unregisterComponent(component:IEntityComponent):void;
 		function removeComponents():void;
 		
 		function onRegister():void;

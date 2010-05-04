@@ -38,7 +38,7 @@ package co.uk.swft.base
 			}
 		}
 		
-		public function removeComponent(component:IEntityComponent):void
+		public function unregisterComponent(component:IEntityComponent):void
 		{
 			var index:int = _components.indexOf(component);
 			if (index > -1)

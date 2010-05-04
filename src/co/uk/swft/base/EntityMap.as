@@ -33,7 +33,7 @@ package co.uk.swft.base
 			if (_entities.indexOf(entity) == -1)
 			{
 				_entities.push(entity);
-				entity.onRegister();
+				entity.onRegister();				
 			}
 		}
 		
