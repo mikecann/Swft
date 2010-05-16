@@ -4,6 +4,8 @@ package co.uk.swft.base
 	import co.uk.swft.core.IEntityComponent;
 	import co.uk.swft.core.IEntityMap;
 	
+	import org.osflash.signals.ISignal;
+	import org.osflash.signals.Signal;
 	import org.robotlegs.core.IInjector;
 	
 	public class Entity implements IEntity
@@ -13,10 +15,11 @@ package co.uk.swft.base
 		
 		protected var _injector:IInjector;
 		protected var _components:Array;
+		protected var _signals : Array;
 		
 		public function Entity()
 		{
-			_components = new Array();
+			_components = [];
 		}
 		
 		public function set injector(value:IInjector):void
@@ -48,11 +51,26 @@ package co.uk.swft.base
 			}
 		}
 		
+		public function registerSignal(signal:Signal) : Signal
+		{
+			if (!_signals){_signals=[];}
+			_signals.push(signal);
+			return signal;
+		}
+		
 		public function removeComponents():void
 		{
 			var component:IEntityComponent;
 			while (component = _components.pop())
 				component.onRemove();
+		}
+		
+		public function removeSignals() : void
+		{
+			for each (var signal : Signal in _signals)
+			{
+				signal.removeAll();
+			}	
 		}
 		
 		public function mapComponents():void
@@ -69,6 +87,7 @@ package co.uk.swft.base
 		{
 			// HOOK: override
 			removeComponents();
+			removeSignals();
 		}
 	}
 }
