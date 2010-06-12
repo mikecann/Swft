@@ -1,0 +1,3 @@
+h2. SWFt - Game Framework
+
+No read me just yet, but for discussions on the project please check the mailing list: http://groups.google.com/group/swft-framework
