@@ -9,28 +9,11 @@ package co.uk.swft.base
 	{		
 		// Protecteds
 		protected var _entity : IEntity;
-		protected var _signals : Array;
 		
 		[PostConstruct]
 		public function init():void
 		{
 			entity.registerComponent(this);
-		}
-	
-		public function registerSignal(signal:Signal) : Signal
-		{
-			if (!_signals){ _signals=[]; }
-			_signals.push(signal);
-			return signal;
-		}
-		
-		public function removeSignals() : void
-		{
-			for each (var signal : Signal in _signals)
-			{
-				signal.removeAll();
-				signal = null;
-			}
 		}
 		
 		public function onRegister():void
@@ -41,7 +24,6 @@ package co.uk.swft.base
 		public function onRemove():void
 		{
 			// HOOK: override
-			removeSignals();
 		}
 		
 		[Inject]

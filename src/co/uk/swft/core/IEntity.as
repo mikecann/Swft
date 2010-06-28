@@ -13,6 +13,6 @@ package co.uk.swft.core
 		function removeComponents():void;
 		
 		function onRegister():void;
-		function onRemove():void;
+		function onDestroy():void;
 	}
 }

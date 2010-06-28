@@ -5,5 +5,6 @@ package co.uk.swft.core
 		function mapManager(managerClazz:Class) : void;
 		function mapManagerOf(whenAskedFor:Class,provide:Class) : void;
 		function startGame() : void;
+		function startNextLevel() : void;
 	}
 }

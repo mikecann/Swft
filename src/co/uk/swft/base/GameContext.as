@@ -5,6 +5,7 @@ package co.uk.swft.base
 	
 	import flash.display.DisplayObjectContainer;
 	
+	import org.osflash.signals.Signal;
 	import org.robotlegs.base.SignalCommandMap;
 	import org.robotlegs.core.IMediatorMap;
 	import org.robotlegs.core.ISignalCommandMap;
@@ -13,6 +14,8 @@ package co.uk.swft.base
 	
 	public class GameContext extends Context
 	{
+		private var _sig : Signal; // HOW DO YOU INCLUDE CLASSES IN YOUR LIB WITHOUT REFERENCING THEM?!?
+		
 		protected var _entityMap:IEntityMap;
 		protected var _gameManagerMap:IGameManagerMap;
 		protected var _signalCommandMap:ISignalCommandMap;

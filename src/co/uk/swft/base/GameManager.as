@@ -1,11 +1,14 @@
 package co.uk.swft.base
 {
+	import co.uk.swft.core.IEntityMap;
 	import co.uk.swft.core.IGameManager;
 	
 	import org.robotlegs.mvcs.Actor;
 
 	public class GameManager extends Actor implements IGameManager
 	{
+		[Inject] public var entityMap : IEntityMap;
+		
 		public function GameManager()
 		{
 		}

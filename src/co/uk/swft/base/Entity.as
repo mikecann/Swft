@@ -10,12 +10,12 @@ package co.uk.swft.base
 	
 	public class Entity implements IEntity
 	{
-		[Inject]
-		public var entityMap:IEntityMap;
+		// Dependencies
+		[Inject] public var entityMap:IEntityMap;
 		
+		// Protecteds
 		protected var _injector:IInjector;
 		protected var _components:Array;
-		protected var _signals : Array;
 		
 		public function Entity()
 		{
@@ -50,28 +50,13 @@ package co.uk.swft.base
 				component.onRemove();
 			}
 		}
-		
-		public function registerSignal(signal:Signal) : Signal
-		{
-			if (!_signals){_signals=[];}
-			_signals.push(signal);
-			return signal;
-		}
-		
+					
 		public function removeComponents():void
 		{
 			var component:IEntityComponent;
 			while (component = _components.pop())
 				component.onRemove();
-		}
-		
-		public function removeSignals() : void
-		{
-			for each (var signal : Signal in _signals)
-			{
-				signal.removeAll();
-			}	
-		}
+		}	
 		
 		public function mapComponents():void
 		{
@@ -83,11 +68,10 @@ package co.uk.swft.base
 			// HOOK: override
 		}
 		
-		public function onRemove():void
+		public function onDestroy():void
 		{
 			// HOOK: override
-			removeComponents();
-			removeSignals();
-		}
+		}		
+
 	}
 }

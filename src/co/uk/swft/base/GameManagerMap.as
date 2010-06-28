@@ -47,5 +47,14 @@ package co.uk.swft.base
 				man.onGameStartup();
 			}
 		}
+		
+		public function startNextLevel() : void
+		{
+			// Loop through each manager and start the next level
+			for each (var man : IGameManager in _managers)
+			{
+				man.onNextLevel();
+			}
+		}
 	}
 }

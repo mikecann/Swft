@@ -43,7 +43,8 @@ package co.uk.swft.base
 			if (index > -1)
 			{
 				_entities.splice(index, 1);
-				entity.onRemove();
+				entity.onDestroy();  // First allow the entity to destroy any references it has
+				entity.removeComponents(); // Then destroy all the components in this entity
 			}
 		}
 		
@@ -51,7 +52,9 @@ package co.uk.swft.base
 		{
 			var entity:IEntity;
 			while (entity = _entities.pop())
-				entity.onRemove();
+			{
+				removeEntity(entity);
+			}
 		}
 	}
 }
